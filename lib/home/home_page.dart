@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_example_project/state_management/counter_provider_class.dart';
@@ -14,6 +16,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    log('Screen rebuild');
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -36,17 +39,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 const Spacer(),
                 TextButton(
                   onPressed: () {
-                    Provider.of<Counter>(
-                      context,
-                      listen: false,
-                    ).decrementCounter();
+                    context.read<Counter>().decrementCounter();
                   },
                   child: Text('Decrement'),
                 ),
                 const Spacer(),
                 TextButton(
                   onPressed: () {
-                    Provider.of<Counter>(context, listen: false).reset();
+                    context.read<Counter>().reset();
                   },
                   child: Text('Reset'),
                 ),
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Provider.of<Counter>(context, listen: false).incrementCounter();
+          context.read<Counter>().incrementCounter();
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
