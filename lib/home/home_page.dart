@@ -28,9 +28,14 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             const Spacer(),
             const Text('You have pushed the button this many times:'),
-            Text(
-              '${context.watch<Counter>().counter}',
-              style: Theme.of(context).textTheme.headlineMedium,
+            Consumer<Counter>(
+              builder: (context, Counter counterValue, child) {
+                log('We are only on consumer');
+                return Text(
+                  '${counterValue.counter}',
+                  style: Theme.of(context).textTheme.headlineMedium,
+                );
+              },
             ),
             const Spacer(),
             Row(
