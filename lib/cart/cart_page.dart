@@ -5,6 +5,13 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: Text('Cart')),
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(mainAxisAlignment: .center, children: [Text('Cart')]),
+      ),
+    );
   }
 }
