@@ -17,6 +17,7 @@ class Counter with ChangeNotifier {
   }
 
   void reset() {
+    if (_counter <= 0) return;
     _counter = 0;
     notifyListeners();
   }
