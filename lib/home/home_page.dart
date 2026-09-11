@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_example_project/cart/cart_page.dart';
+import 'package:provider_example_project/state_management/cart_provider.dart';
 import 'package:provider_example_project/state_management/counter_provider_class.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -40,14 +41,14 @@ class MyHomePage extends StatelessWidget {
                 const Spacer(),
                 TextButton(
                   onPressed: () {
-                    context.read<Counter>().decrementCounter();
+                    context.read<CartProvider>().decrement();
                   },
                   child: const Text('Decrement'),
                 ),
                 const Spacer(),
                 TextButton(
                   onPressed: () {
-                    context.read<Counter>().reset();
+                    context.read<CartProvider>().reset();
                   },
                   child: const Text('Reset'),
                 ),
@@ -69,7 +70,7 @@ class MyHomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.read<Counter>().incrementCounter();
+          context.read<CartProvider>().increment();
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
