@@ -18,9 +18,11 @@ class CartPage extends StatelessWidget {
             const Text('Cart'),
             const SizedBox(height: 32),
             Consumer<CartProvider>(
-              builder: (context, value, child) {
-                return Text(value.total.toString());
-              },
+              builder: (context, value, child) => Text(value.total.toString()),
+            ),
+            const SizedBox(height: 16),
+            Consumer<CartProvider>(
+              builder: (context, value, child) => Text(value.count.toString()),
             ),
           ],
         ),
