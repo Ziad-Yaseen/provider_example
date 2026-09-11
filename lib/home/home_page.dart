@@ -41,14 +41,14 @@ class MyHomePage extends StatelessWidget {
                   onPressed: () {
                     context.read<Counter>().decrementCounter();
                   },
-                  child: Text('Decrement'),
+                  child: const Text('Decrement'),
                 ),
                 const Spacer(),
                 TextButton(
                   onPressed: () {
                     context.read<Counter>().reset();
                   },
-                  child: Text('Reset'),
+                  child: const Text('Reset'),
                 ),
                 const Spacer(flex: 2),
               ],

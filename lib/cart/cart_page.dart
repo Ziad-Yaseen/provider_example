@@ -8,15 +8,15 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Cart')),
+      appBar: AppBar(title: const Text('Cart')),
       body: SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: Column(
           mainAxisAlignment: .center,
           children: [
-            Text('Cart'),
-            SizedBox(height: 32),
+            const Text('Cart'),
+            const SizedBox(height: 32),
             Consumer<CartProvider>(
               builder: (context, value, child) {
                 return Text(value.total.toString());
