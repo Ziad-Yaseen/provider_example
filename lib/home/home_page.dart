@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_example_project/cart/cart_page.dart';
 import 'package:provider_example_project/state_management/counter_provider_class.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -52,6 +53,15 @@ class MyHomePage extends StatelessWidget {
                 ),
                 const Spacer(flex: 2),
               ],
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CartPage()),
+                );
+              },
+              child: const Text('Go to Cart Screen'),
             ),
             const SizedBox(height: 40),
           ],
