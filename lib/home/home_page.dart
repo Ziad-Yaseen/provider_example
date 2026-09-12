@@ -35,6 +35,22 @@ class MyHomePage extends StatelessWidget {
               },
             ),
             const Spacer(),
+            Consumer<CartProvider>(
+              builder: (context, value, child) => Text(value.total.toString()),
+            ),
+            const SizedBox(height: 16),
+            Consumer<CartProvider>(
+              builder: (context, value, child) => Text(value.count.toString()),
+            ),
+            const Text('----------------------------'),
+            Selector<CartProvider, String>(
+              builder: (context, value, child) {
+                log('Just Changed');
+                return Text(value);
+              },
+              selector: (context, value) => value.condition,
+            ),
+            const Text('----------------------------'),
             Row(
               mainAxisAlignment: .center,
               children: [
@@ -70,7 +86,7 @@ class MyHomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.read<CartProvider>().increment();
+          context.read<CartProvider>().changeCondition('the new condition');
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),

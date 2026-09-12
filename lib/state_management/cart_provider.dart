@@ -7,6 +7,14 @@ class CartProvider with ChangeNotifier {
   int _total = 0;
   int get total => _total;
 
+  String _condition = 'The user logged out';
+  String get condition => _condition;
+
+  void changeCondition(String newCondition) {
+    _condition = newCondition;
+    notifyListeners();
+  }
+
   void increment() {
     _count++;
     _total = _count * 100;
